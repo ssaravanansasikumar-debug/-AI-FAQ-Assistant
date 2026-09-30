@@ -1,0 +1,151 @@
+{
+  "info": {
+    "name": "AnswerBot API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Priya Sharma\", \"email\": \"priya@writeflow.com\", \"password\": \"securepassword123\"}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/register",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\": \"priya@writeflow.com\", \"password\": \"securepassword123\"}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/login",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create FAQ",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"question\": \"How do I configure custom category tags?\", \"answer\": \"Navigate to settings panel, append keyword tags arrays, and save schema.\", \"category\": \"Configuration\"}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/faqs",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "faqs"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Search FAQ",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:5000/api/faqs/search?q=configure",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "faqs",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "configure"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Generate FAQ with AI",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"topic\": \"Mongoose schema indexing validation runtime workflow optimization\"}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/ai/generate-faq",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "ai",
+            "generate-faq"
+          ]
+        }
+      }
+    }
+  ]
+}
